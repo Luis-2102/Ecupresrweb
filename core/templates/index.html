@@ -1,0 +1,993 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<main class="main">
+
+  </html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECUPREST - Fácil, Seguro y Transparente</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        overflow-x: hidden;
+      }
+
+      /* Header y Navegación */
+      header {
+        background-color: #111;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        max-height: 60px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #0ff;
+      }
+
+      nav ul li a.active {
+        color: #0ff;
+      }
+
+      nav ul li a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #0ff;
+      }
+
+      /* Hero Section con Revolution Slider */
+      .rev_slider_wrapper {
+        position: relative;
+        height: 600px;
+        overflow: hidden;
+        background-color: #1a365d;
+      }
+
+      .rev_slider {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .tp-bgimg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.2;
+        z-index: 1;
+      }
+
+      .slide-content {
+        display: flex;
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+      }
+
+      .slide-text {
+        flex: 1;
+        padding: 80px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .slide-text h1 {
+        font-size: 5rem;
+        font-weight: 300;
+        margin-bottom: 10px;
+        line-height: 0.9;
+      }
+
+      .slide-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      .slide-text p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        max-width: 450px;
+        font-style: italic;
+        color: #0ff;
+      }
+
+      .slide-devices {
+        flex: 1;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Dispositivos (Layer Animations) */
+      .device {
+        position: absolute;
+      }
+
+      /* MacBook Pro */
+      .macbook {
+        width: 107%;
+        height: 70%;
+        z-index: 5;
+        right: 13%;
+        bottom: auto;
+        top: 11%;
+      }
+
+      .macbook-screen {
+        width: 76.5%;
+        height: 49%;
+        z-index: 6;
+        right: 31%;
+        top: 20%;
+        object-fit: scale-down;
+      }
+
+      /* iPad */
+      .ipad {
+        width: 55%;
+        z-index: 7;
+        right: 68%;
+        bottom: auto;
+      }
+
+      .ipad-screen {
+        width: 40%;
+        height: 48%;
+        z-index: 8;
+        right: 75.5%;
+        top: 26.7%;
+        object-fit: scale-down;
+      }
+
+      /* iPhone */
+      .iphone {
+        width: 35%;
+        z-index: 9;
+        right: 90%;
+        top: 24%;
+        bottom: auto;
+      }
+
+      .iphone-screen {
+        width: 91%;
+        height: 39%;
+        z-index: 10;
+        right: 62%;
+        top: 35%;
+        object-fit: scale-down;
+      }
+
+
+      /* Download Buttons */
+      .download-section {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .store-button {
+        display: inline-flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .store-button:hover {
+        background-color: rgba(0, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .store-button img {
+        height: 24px;
+        margin-right: 10px;
+      }
+
+      /* Animaciones */
+      .fade-in {
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .slide-in-left {
+        animation: slideInLeft 1s ease forwards;
+      }
+
+      .slide-in-right {
+        animation: slideInRight 1s ease forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .zoom-in {
+        animation: zoomIn 1s ease forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .slide-text h1 {
+          font-size: 3.5rem;
+        }
+
+        .slide-text {
+          padding: 50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .slide-content {
+          flex-direction: column;
+        }
+
+        .slide-text {
+          padding: 40px;
+          text-align: center;
+          align-items: center;
+        }
+
+        .slide-devices {
+          height: 500px;
+        }
+
+        .download-section {
+          justify-content: center;
+        }
+
+        nav ul {
+          display: none;
+        }
+
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Hero Section con Revolution Slider -->
+    <div class="rev_slider_wrapper">
+      <div class="rev_slider">
+        <div class="tp-bgimg" style="background-image: url('media/index-fullscreen.jpg');"></div>
+
+        <div class="slide-content">
+          <div class="slide-text slide-in-left">
+            <h1><br>ECUPREST</h1>
+            <h2>FÁCIL, SEGURO Y TRANSPARENTE</h2>
+            <p>La plataforma Ecuatoriana que te permite solicitar préstamos de manera rápida y segura desde tu
+              dispositivo móvil.</p>
+            <div class="d-flex">
+              <a href="#Calculadora" class="btn-get-started">Simula Tu Préstamo</a>
+            </div>
+          </div>
+
+          <div class="slide-devices">
+            <!-- Dispositivos con animaciones -->
+            <!-- MacBook con su contenido -->
+            <img src="media/macbookpro.png" alt="MacBook Pro" class="device macbook slide-in-right">
+            <img src="media/express_macbook_content2.jpg" alt="MacBook Screen" class="device macbook-screen zoom-in">
+
+            <!-- iPad con su contenido -->
+            <img src="media/ipad.png" alt="iPad" class="device ipad slide-in-right">
+            <img src="media/express_ipad_content2.jpg" alt="iPad Screen" class="device ipad-screen zoom-in">
+
+            <!-- iPhone con su contenido -->
+            <img src="media/ihpone.png" alt="iPhone" class="device iphone slide-in-right">
+            <img src="media/express_iphone_content2.jpg" alt="iPhone Screen" class="device iphone-screen zoom-in">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido adicional iría aquí -->
+
+  </body>
+  <!-- Sección Principal 
+  <section id="Inicio" class="hero section">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Tú aliado en el camino al éxito</h1>
+          <p>Los Interes más bajos del mercado</p>
+          <div class="d-flex">
+            <a href="#Calculadora" class="btn-get-started">Simula Tu Préstamo</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="{% static 'img/hero-img.png'%}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section>
+-->
+  <!-- Sección Nosotros -->
+  <section id="Nosotros" class="about section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>ECUPREST</h2>
+      <p> </p>
+    </div>
+    <div class="container">
+      <div class="row gy-5">
+        <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+          <h3>¿Por qué Escoger Nuestra Empresa?</h3>
+          <p>
+            Somos líder en servicios financieros fomentamos flexibilidad y
+            rapidez, cubriendo necesidades y generando soluciones a nuestros socios.
+          </p>
+          <!-- <a href="#" class="about-btn align-self-center align-self-xl-start"><span>About us</span> <i
+              class="bi bi-chevron-right"></i></a> -->
+        </div>
+        <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-4">
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-calendar-week"></i>
+              <h4><a class="stretched-link">Plazo Flexible</a></h4>
+              <p><b>Rango de Tiempo </b></p>
+              <p><b>Proyectos que generan rentabilidad</b></p>
+              <p><b>Plazo de hasta 48 meses</b></p>
+            </div>
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-cash-coin"></i>
+              <h4><a class="stretched-link">Sin Comisiones</a></h4>
+              <p> <b>Más dinero en tu bolsillo</b> </p>
+            </div>
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-cash-stack"></i>
+              <h4><a class="stretched-link">Crédito VIP PLUS</a></h4>
+              <p><b>Linea de Crédito más alta</b></p>
+              <p><b>Tasa de interes más bajo</b></p>
+            </div>
+            <div class="col-md-6 icon-box position-relative">
+              <i class="bi bi-person-video2"></i>
+              <h4><a class="stretched-link">Sin Historial Crediticio</a></h4>
+              <p><b>Te ayudamos a mejorar tu score crediticio </b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección estadisticas -->
+  <div class="process-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="process-item">
+            <img src="media/ELIGE.png" alt="Elige">
+            <h3>Elige</h3>
+            <p>El producto que necesitas (Auto, Casa, Camión, Terreno, Maquinaria o cualquiera de nuestro catálogo)</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="process-item">
+            <img src="media/DEFINIR.png" alt="Define">
+            <h3>Define</h3>
+            <p>Tu plan personalizado, con opciones de entrada y entrega.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="process-item">
+            <img src="media/CUMPLE.png" alt="Cumple">
+            <h3>Cumple</h3>
+            <p>Con tus pagos mensuales acorde al plan elegido.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="process-item">
+            <img src="media/DISFRUTA.png" alt="Disfruta">
+            <h3>Disfruta</h3>
+            <p>De tu nueva casa, carro, camión, terreno, maquinario o eso que siempre soñaste.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de Estadísticas -->
+  <section id="stats" class="stats section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4 align-items-center">
+        <div class="col-lg-5">
+          <img src="media/stats-img.svg" alt="" class="img-fluid">
+        </div>
+        <div class="col-lg-7">
+          <div class="row gy-4">
+            <div class="col-lg-6">
+              <div class="stats-item d-flex">
+                <i class="bi bi-emoji-smile flex-shrink-0"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Clientes Satisfechos</strong> <span></span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="stats-item d-flex">
+                <i class="bi bi-journal-richtext flex-shrink-0"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Proyectos</strong> <span>Qué generan rentabilidad</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="stats-item d-flex">
+                <i class="bi bi-headset flex-shrink-0"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Soporte</strong> <span>Todo el día a toda hora</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="stats-item d-flex">
+                <i class="bi bi-people flex-shrink-0"></i>
+                <div>
+                  <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+                    class="purecounter"></span>
+                  <p><strong>Inversores</strong> <span></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aplicativo -->
+  <section id="Solicitar" class="services section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>¿Cómo Solicitar?</h2>
+      <p>Tu solicitud, nuestra prioridad. Así de simple</p>
+    </div>
+    <div class="container">
+      <div class="row gy-4" style="justify-content: space-around; align-items: flex-start;">
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <i class="bi bi-envelope-check-fill"></i>
+            <h4><a class="stretched-link">Envia tu Solicitud</a></h4>
+            <p>Escríbenos a nuestro Whatsapp o Correo para que nuestros asesores tomen tu caso. No tienes que presentar
+              ningún tipo de garante ni aval.</p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <i class="bi bi-person-vcard"></i>
+            <h4><a class="stretched-link">Envia la documentación</a></h4>
+            <p>Envia tu documento de identidad, ingresos, situación laboral y patrimonial al formulario de solicitud.
+              Pueden variar según el monto y objetivo del credito </p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <i class="bi bi-folder-check"></i>
+            <h4><a class="stretched-link">Validación</a></h4>
+            <p>En cuestión de horas nuestro equipo validará tu solicitud y te informará para que firmes el contrato y
+              recibas de manera inmediata el desembolso del préstamo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Requisitos -->
+  <section id="Requisitos" class="alt-services section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Requisitos</h2>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-item position-relative">
+            <div class="img">
+              <img src="{% static 'img/services-1.jpg'%}" class="img-fluid" alt="" style="opacity: 50%;">
+            </div>
+            <div class="details">
+              <h3>Empleados y Servidores públicos</h3>
+              <ul style="color: rgb(255, 255, 255); list-style-type: none;">
+                <li>1 Copia de Cédula</li>
+                <li>1 Copia de la papeleta de votación </li>
+                <li>1 planilla de servicio básico</li>
+                <li>3 fotos tamaño carnet</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-item position-relative">
+            <div class="img">
+              <img src="{% static 'img/services-2.jpg'%}" class="img-fluid" alt="" style="opacity: 50%;">
+            </div>
+            <div class="details">
+              <h3>Empresarios e Independientes</h3>
+              <ul style="color: rgb(255, 255, 255); list-style-type: none;">
+                <li>1 Copia de Cédula</li>
+                <li>1 Copia de la papeleta de votación </li>
+                <li>1 planilla de servicio básico</li>
+                <li>1 Copia del RUC o RISE</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion Testimonios -->
+  <section id="testimonials" class="testimonials section light-background">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Testimonios</h2>
+      <p>La Experiencia de Quienes Confían en Nosotros.</p>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonials/testimonial-1.png'%}" class="testimonial-img" alt="">
+                <h3>Santiago Jiménez</h3>
+                <h4>Emprenderor Independiente</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Desde el primer momento, sentí que estaba en manos expertas.
+                    Su profesionalismo y dedicación me dieron la tranquilidad de saber que mis necesidades eran su
+                    prioridad</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src="{% static 'img/testimonials/testimonial-2.jpg'%}" class="testimonial-img" alt="">
+                <h3>Ariel Mendoza</h3>
+                <h4>Fotógrafo</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>La confianza que deposité en Ecuprest
+                    fue recompensada con resultados que superaron mis expectativas.
+                    Su integridad es un valor fundamental.
+                    Su equipo es profesional, atento y siempre dispuesto a ayudar.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!--  Seccion Calculadora -->
+  <section id="Calculadora" class="credit-calculator section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Calcula tu crédito</h2>
+    </div>
+
+    <div class="container">
+      <div class="calculator-form">
+        <form id="loan-form">
+          <div class="form-group">
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group">
+            <label for="amount">Monto:</label>
+            <input type="number" id="amount" name="amount" placeholder="monto">
+          </div>
+          <div class="form-group">
+            <label for="payment-period">Periodo de pago:</label>
+            <select id="payment-period" name="payment-period">
+              <option value="semanal">semanal</option>
+              <option value="mensual">mensual</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="interest">Interés (anual):</label>
+            <input type="number" id="interest" name="interest" placeholder="interés">
+          </div>
+          <div class="form-group">
+            <label>Plazo:</label>
+            <div>
+              <input type="number" id="term-length" name="term-length" placeholder="Número">
+              <select id="term-unit" name="term-unit">
+                <option value="meses">Meses</option>
+                <option value="años">Año/s</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="simulate-btn" onclick="simulateLoan()">Simular préstamo</button>
+        </form>
+      </div>
+
+      <div class="amortization-table">
+        <h3>Tabla de amortizaciones</h3>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Fecha</th>
+                <th>Mensualidad</th>
+                <th>Intereses</th>
+                <th>Impuestos</th>
+                <th>Capital</th>
+                <th>Insoluto</th>
+              </tr>
+            </thead>
+            <tbody id="amortization-table-body">
+              <!-- Las filas de amortización se generarán aquí -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function simulateLoan() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const annualInterest = parseFloat(document.getElementById('interest').value) / 100;
+      const paymentPeriod = document.getElementById('payment-period').value;
+      const termLength = parseInt(document.getElementById('term-length').value);
+      const termUnit = document.getElementById('term-unit').value;
+      const dateInput = document.getElementById('date').value;
+      const startDate = new Date(dateInput + 'T00:00:00');
+      if (isNaN(amount) || isNaN(annualInterest) || isNaN(termLength) || isNaN(startDate.getTime())) {
+        alert("Por favor, completa todos los campos con valores válidos.");
+        return;
+      }
+
+      let paymentsPerYear;
+      if (paymentPeriod === 'semanal') paymentsPerYear = 52;
+      else paymentsPerYear = 12;
+
+      const interestRate = annualInterest / paymentsPerYear;
+
+      let totalPayments;
+      console.log(termUnit);
+      if (termUnit === 'años') {
+        totalPayments = termLength * paymentsPerYear;
+      } else if (termUnit === 'meses') {
+        if (paymentPeriod === 'semanal') {
+          // Para pagos semanales: aproximadamente 4.33 semanas por mes
+          totalPayments = termLength * (52 / 12);
+        } else {
+          // Para pagos mensuales
+          totalPayments = termLength;
+        }
+      }
+
+      const monthlyPayment = (amount * interestRate) / (1 - Math.pow(1 + interestRate, -totalPayments));
+
+      const tableBody = document.getElementById('amortization-table-body');
+      tableBody.innerHTML = '';
+
+      let balance = amount;
+      let paymentDate = new Date(startDate);
+
+      for (let i = 1; i <= totalPayments; i++) {
+        const interestPayment = balance * interestRate;
+        const capitalPayment = monthlyPayment - interestPayment;
+        balance -= capitalPayment;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>${i}</td>
+        <td>${paymentDate.toLocaleDateString()}</td>
+        <td>$${monthlyPayment.toFixed(2)}</td>
+        <td>$${interestPayment.toFixed(2)}</td>
+        <td>$0.00</td>
+        <td>$${capitalPayment.toFixed(2)}</td>
+        <td>$${balance.toFixed(2)}</td>
+      `;
+        tableBody.appendChild(row);
+
+        if (paymentPeriod === 'semanal') paymentDate.setDate(paymentDate.getDate() + 7);
+        else if (paymentPeriod === 'quincenal') paymentDate.setDate(paymentDate.getDate() + 14);
+        else paymentDate.setMonth(paymentDate.getMonth() + 1);
+
+        if (balance <= 0) break;
+      }
+    }
+  </script>
+
+  <!-- Sección Logos -->
+  <section id="clients" class="clients section light-background">
+    <div class="container" data-aos="fade-up">
+      <div class="row gy-4">
+        {% for icono in iconos %}
+        <div class="col-xl-2 col-md-3 col-6 client-logo">
+          <img src="{{ icono.img.url }}" class="img-fluid" alt="Icono">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- Sección Preguntas -->
+  <section id="faq" class="faq section light-background">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Preguntas Frecuentes</h2>
+      <p>Si tienes alguna duda, aqui las resolvemos</p>
+    </div>
+    <div class="container">
+      <div class="row faq-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-5 d-flex">
+          <i class="bi bi-question-circle"></i>
+          <h4>¿Cuáles son las tasas de interés y los plazos de pago?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            - Tasa de interés: 10%
+          </p>
+          <p>- Plazos de pago: desde 12 hasta 48 meses, dependiendo del monto solicitado</p>
+        </div>
+      </div>
+
+      <div class="row faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5 d-flex">
+          <i class="bi bi-question-circle"></i>
+          <h4>¿Puedo pagar mi crédito antes de tiempo sin penalizaciones?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Sí, puedes pagar tu crédito antes de tiempo sin ningún problema
+          </p>
+        </div>
+      </div>
+      <div class="row faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5 d-flex">
+          <i class="bi bi-question-circle"></i>
+          <h4>¿Cuál es el monto máximo que puedo solicitar?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            El monto depende de la verificación de tu historial crediticio.
+            Los montos solicitados pueden variar desde $2,000 hasta $50,000.
+          </p>
+        </div>
+      </div>
+      <div class="row faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5 d-flex">
+          <i class="bi bi-question-circle"></i>
+          <h4>¿Puedo solicitar un crédito si tengo un historial crediticio negativo?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            No hay problema, ayudamos a nuestros socios a mejorar su historial crediticio
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contacto -->
+  <section id="Contacto" class="contact section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contáctanos</h2>
+      <p>Ven y visítanos</p>
+    </div>
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h3>Dirección</h3>
+              <p>Av. 6 de Diciembre y Orellana, Edificio Pérez Guarderas, N26-202</p>
+            </div>
+          </div>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+            <i class="bi bi-telephone flex-shrink-0"></i>
+            <div>
+              <h3>Teléfono</h3>
+              <p>096 257 9348</p>
+            </div>
+          </div>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h3>Correo Electronico</h3>
+              <p>info@example.com</p>
+            </div>
+          </div>
+          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7941631855565!2d-78.48453769999999!3d-0.19938119999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59bf9df525201%3A0xb8ef4fecfb49cd66!2sCorporaci%C3%B3n%20de%20inversiones%20ec!5e0!3m2!1ses-419!2sec!4v1745626455654!5m2!1ses-419!2sec"
+              frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+            {% csrf_token %}
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" placeholder="Correo" required>
+              </div>
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
+              </div>
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
+              </div>
+              <div class="col-md-12 text-center">
+                <div class="loading">Cargando</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Tu Mensaje fue enviado con éxito. ¡Muchas Gracias!</div>
+                <button type="submit">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock%}
