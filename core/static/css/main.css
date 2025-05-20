@@ -1,8 +1,8 @@
 
 /* Fonts */
 :root {
-  --default-font: "DM Sans Family Font",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Prompt Family font",  sans-serif;
+  --default-font: "DM Sans Family Font",  system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins", Sans-serif;
   --nav-font: "DM Sans Family Font",  sans-serif;
 }
 
@@ -144,8 +144,9 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 145px;
+  max-height: 100px;
   margin-right: 8px;
+  padding: 5px;
 }
 
 .header .logo h1 {
@@ -595,7 +596,7 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  background-color: #111111;
+  background-color: #fff9f9;
   padding: 60px 0;
   scroll-margin-top: 90px;
   overflow: clip;
@@ -995,7 +996,7 @@ section,
 }
 
 .testimonials .testimonial-item {
-  background-color: #191919e6;
+  background-color: #ffffffe6;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   box-sizing: content-box;
   padding: 30px 30px 30px 60px;
@@ -1122,7 +1123,7 @@ section,
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  color: #ffffff;
+  color: #201f1f;
 }
 
 /* Formulario de la calculadora */
@@ -1293,7 +1294,7 @@ section,
 
 .contact:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: color-mix(in srgb, var(--background-color), transparent 80%);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1439,7 +1440,6 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
-
 /*--------------------------------------------------------------
 # boton whatsapp
 --------------------------------------------------------------*/
@@ -1518,332 +1518,6 @@ section,
       height: 30px;
   }
 }
-
-/* Diseño mejorado para modo oscuro - Más elegante y con mejor contraste */
-
-/* Variables globales refinadas */
-:root { 
-  --background-color: #111111; /* Fondo más oscuro para mayor contraste */
-  --default-color: #f0f0f0; /* Texto más brillante para mejor legibilidad */
-  --heading-color: #ffffff; /* Encabezados en blanco puro */
-  --accent-color: #00d8d8; /* Color acento más brillante */
-  --accent-color-hover: #00ffff; /* Color acento para hover */
-  --surface-color: #1e1e1e; /* Color para elementos de tarjetas */
-  --contrast-color: #ffffff; /* Color de texto sobre fondos oscuros */
-  --nav-bg: rgba(0, 0, 0, 0.8); /* Fondo de navegación semitransparente */
-  --border-color: #333333; /* Color para bordes */
-  --box-shadow: 0 5px 20px rgba(0, 216, 216, 0.15); /* Sombra con color acento */
-}
-
-/* Estilos generales */
-body {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-family: var(--default-font);
-  line-height: 1.6;
-}
-
-/* Mejora de header con efecto de vidrio */
-.header {
-  background-color: #111111;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid rgba(0, 216, 216, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 10px 0;
-}
-
-/* Logo y marca - resaltar con glow */
-.header .logo img {
-  max-height: 95px;
-  filter: drop-shadow(0 0 6px rgb(255, 255, 255));
-}
-
-.header .logo h1 {
-  color: var(--heading-color);
-  text-shadow: 0 0 10px rgba(0, 216, 216, 0.3);
-}
-
-/* Menú de navegación mejorado */
-.navmenu a, 
-.navmenu a:focus {
-  color: #cccccc;
-  font-weight: 500;
-  position: relative;
-  padding: 10px 15px;
-  transition: color 0.3s ease;
-}
-
-.navmenu a:hover,
-.navmenu .active,
-.navmenu .active:focus {
-  color: var(--accent-color);
-}
-
-/* Efecto de línea debajo de los elementos del menú */
-.navmenu a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 50%;
-  background-color: var(--accent-color);
-  transition: all 0.3s ease;
-}
-
-.navmenu a:hover::after,
-.navmenu .active::after {
-  width: 80%;
-  left: 10%;
-}
-
-/* Mejorar botones principales */
-.btn-getstarted,
-.header .btn-getstarted,
-.btn-get-started, 
-.hero .btn-get-started {
-  background: var(--accent-color);
-  color: #111111; /* Texto oscuro sobre fondo claro para mayor contraste */
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 216, 216, 0.3);
-}
-
-.btn-getstarted:hover,
-.header .btn-getstarted:hover,
-.btn-get-started:hover, 
-.hero .btn-get-started:hover {
-  background: var(--accent-color-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 216, 216, 0.4);
-}
-
-/* Hero section con imagen de fondo y overlay gradiente */
-.hero {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background-color: #090909;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://via.placeholder.com/1920x1080"); /* Reemplazar con tu imagen */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  z-index: 1;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 216, 216, 0.2) 0%, rgba(0, 0, 0, 0.9) 100%);
-  z-index: 2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin-bottom: 30px;
-  color: #e0e0e0;
-}
-
-/* Tarjetas de servicios elegantes */
-.services .service-item {
-  background-color: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(5px);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
-  padding: 40px 30px;
-  transition: all 0.4s ease;
-  height: 100%;
-  overflow: hidden;
-}
-
-.services .service-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 216, 216, 0.2);
-  border-color: rgba(0, 216, 216, 0.3);
-}
-
-.services .service-item i {
-  background: var(--accent-color);
-  color: #111111;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(0, 216, 216, 0.4);
-}
-
-.services .service-item h4 {
-  margin: 20px 0 15px;
-  font-weight: 600;
-}
-
-.services .service-item h4 a {
-  color: white;
-  transition: color 0.3s ease;
-}
-
-/* Sección About con mayor contraste */
-.about .content h3 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.about .content p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 25px;
-}
-
-.about .icon-box {
-  padding: 20px;
-  background-color: rgba(30, 30, 30, 0.5);
-  border-radius: 8px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  border-left: 3px solid var(--accent-color);
-}
-
-.about .icon-box:hover {
-  background-color: rgba(30, 30, 30, 0.8);
-  transform: translateX(5px);
-}
-
-/* Calculadora con estilo refinado */
-.credit-calculator .container {
-  background-color: rgba(25, 25, 25, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-color);
-}
-
-.calculator-form {
-  background-color: rgba(30, 30, 30, 0.7);
-  border-radius: 8px;
-  padding: 30px;
-  margin-bottom: 30px;
-  border: 1px solid var(--border-color);
-}
-
-.calculator-form input[type="text"],
-.calculator-form select {
-  background-color: rgba(17, 17, 17, 0.8);
-  color: white;
-  border: 1px solid #444;
-  border-radius: 4px;
-  padding: 12px 15px;
-  width: 100%;
-}
-
-.calculator-form input[type="text"]:focus,
-.calculator-form select:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 2px rgba(0, 216, 216, 0.2);
-  outline: none;
-}
-
-.calculator-form .simulate-btn {
-  background-color: var(--accent-color);
-  color: #111111;
-  font-weight: 600;
-  padding: 12px 25px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.calculator-form .simulate-btn:hover {
-  background-color: var(--accent-color-hover);
-  box-shadow: 0 5px 15px rgba(0, 216, 216, 0.3);
-  transform: translateY(-2px);
-}
-
-.amortization-table {
-  background-color: rgba(30, 30, 30, 0.7);
-  border-radius: 8px;
-  padding: 25px;
-}
-
-.amortization-table thead {
-  background-color: var(--accent-color);
-}
-
-.amortization-table th {
-  color: #111111;
-  font-weight: 600;
-  padding: 12px 15px;
-}
-
-.amortization-table tbody tr:nth-child(even) {
-  background-color: rgba(50, 50, 50, 0.5);
-}
-
-.amortization-table td {
-  padding: 12px 15px;
-  color: #e0e0e0;
-  border: 1px solid rgba(68, 68, 68, 0.5);
-}
-
-/* Footer elegante */
-.footer {
-  background-color: rgba(15, 15, 15, 0.9);
-  border-top: 1px solid rgba(0, 216, 216, 0.1);
-  padding: 50px 0 30px;
-}
-
-.footer .social-links a {
-  background-color: rgba(30, 30, 30, 0.8);
-  color: #e0e0e0;
-  border: 1px solid #333;
-  transition: all 0.3s ease;
-}
-
-.footer .social-links a:hover {
-  background-color: var(--accent-color);
-  color: #111111;
-  border-color: var(--accent-color);
-  transform: translateY(-3px);
-}
-
 /* Botón de WhatsApp con diseño mejorado */
 .whatsapp-button-flotante {
   background-color: #25D366;
@@ -1890,401 +1564,14 @@ body {
   }
 }
 
-/* Estilos para sección de Testimonios */
-.testimonios {
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(60, 60, 60, 0.9);
-}
-
-.testimonios h2 {
-  font-size: 2.5rem;
-  color: var(--heading-color);
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(0, 216, 216, 0.2);
-  position: relative;
-}
-
-/* Líneas decorativas alrededor del título */
-.testimonios h2::before,
-.testimonios h2::after {
-  content: "";
-  display: inline-block;
-  width: 50px;
-  height: 2px;
-  background-color: var(--accent-color);
-  margin: 0 15px;
-  vertical-align: middle;
-}
-
-.testimonios p {
-  color: var(--default-color);
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1.1rem;
-}
-
-/* Estilos para las tarjetas de testimonios según la estructura actual */
-.testimonios .card {
-  background-color: rgba(30, 30, 30, 0.8);
-  backdrop-filter: blur(5px);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  margin-bottom: 30px;
-  transition: all 0.4s ease;
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-  height: 100%;
-}
-
-.testimonios .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 216, 216, 0.2);
-  border-color: rgba(0, 216, 216, 0.3);
-}
-
-/* Imagen del cliente con estilo */
-.testimonios .cliente-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: -40px auto 15px;
-  border: 3px solid var(--accent-color);
-  box-shadow: 0 0 15px rgba(0, 216, 216, 0.3);
-  object-fit: cover;
-  display: block;
-  background-color: var(--background-color);
-  position: relative;
-  z-index: 2;
-}
-
-.testimonios .cliente-img-container {
-  position: relative;
-  margin-bottom: 10px;
-  padding: 0 15px;
-}
-
-/* Estrellas de calificación */
-.testimonios .stars {
-  text-align: center;
-  color: #FFD700;
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-/* Comillas para los testimonios */
-.testimonios blockquote {
-  position: relative;
-  padding: 20px 30px;
-  margin: 0;
-  font-style: italic;
-  color: #e0e0e0;
-}
-
-.testimonios blockquote::before,
-.testimonios blockquote::after {
-  content: '"';
-  font-family: Georgia, serif;
-  font-size: 60px;
-  position: absolute;
-  opacity: 0.3;
-  color: var(--accent-color);
-}
-
-.testimonios blockquote::before {
-  top: -10px;
-  left: 10px;
-}
-
-.testimonios blockquote::after {
-  bottom: -40px;
-  right: 10px;
-}
-
-/* Estilo para el nombre del cliente */
-.testimonios .cliente-nombre {
-  text-align: center;
-  margin-top: 15px;
-  font-weight: 600;
-  color: var(--accent-color);
-}
-
-/* Estilos para slider de testimonios (si usas swiper u otro) */
-.testimonios .swiper-pagination {
-  margin-top: 30px;
-}
-
-.testimonios .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
-  opacity: 1;
-}
-
-.testimonios .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-  box-shadow: 0 0 5px var(--accent-color-hover);
-}
-
-/* Estilos para sección de Preguntas Frecuentes */
-.preguntas-frecuentes {
-  padding: 80px 0;
-  background-color: rgba(15, 15, 15, 0.8);
-  position: relative;
-}
-
-.preguntas-frecuentes h2 {
-  font-size: 2.5rem;
-  color: var(--heading-color);
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(0, 216, 216, 0.2);
-  position: relative;
-}
-
-/* Líneas decorativas alrededor del título */
-.preguntas-frecuentes h2::before,
-.preguntas-frecuentes h2::after {
-  content: "";
-  display: inline-block;
-  width: 50px;
-  height: 2px;
-  background-color: var(--accent-color);
-  margin: 0 15px;
-  vertical-align: middle;
-}
-
-.preguntas-frecuentes p.descripcion {
-  color: var(--default-color);
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1.1rem;
-}
-
-/* Contenedor de acordeón */
-.preguntas-frecuentes .accordion {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.preguntas-frecuentes .accordion-item {
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--box-shadow);
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
-  background-color: transparent;
-}
-
-.preguntas-frecuentes .accordion-item:hover {
-  border-color: rgba(0, 216, 216, 0.3);
-}
-
-.preguntas-frecuentes .accordion-header {
-  margin: 0;
-}
-
-.preguntas-frecuentes .accordion-button {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--heading-color);
-  padding: 20px 25px;
-  background-color: rgba(30, 30, 30, 0.8);
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  position: relative;
-  transition: all 0.3s ease;
-  width: 100%;
-  text-align: left;
-}
-
-.preguntas-frecuentes .accordion-button:hover {
-  background-color: rgba(35, 35, 35, 0.9);
-}
-
-.preguntas-frecuentes .accordion-button:not(.collapsed) {
-  background-color: rgba(0, 216, 216, 0.1);
-  color: var(--accent-color);
-  border-left: 3px solid var(--accent-color);
-  box-shadow: none;
-}
-
-/* Cambiar el color del icono del acordeón */
-.preguntas-frecuentes .accordion-button::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300d8d8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  transition: all 0.3s ease;
-}
-
-.preguntas-frecuentes .accordion-button:not(.collapsed)::after {
-  transform: rotate(-180deg);
-}
-
-.preguntas-frecuentes .accordion-body {
-  background-color: rgba(25, 25, 25, 0.7);
-  padding: 20px 25px;
-  line-height: 1.7;
-  color: #e0e0e0;
-}
-
-/* Para efectos de transición más suaves (opcional) */
-.preguntas-frecuentes .accordion-collapse {
-  transition: all 0.5s ease;
-}
-
-/* Si estás usando Bootstrap 5 con un acordeón personalizado */
-.preguntas-frecuentes .accordion-collapse.collapsing {
-  transition: height 0.35s ease;
-}
-
-/* Mejoras responsive */
-@media (max-width: 991px) {
-  .preguntas-frecuentes h2,
-  .testimonios h2 {
-    font-size: 2rem;
-  }
-  
-  .preguntas-frecuentes h2::before,
-  .preguntas-frecuentes h2::after,
-  .testimonios h2::before,
-  .testimonios h2::after {
-    width: 30px;
-    margin: 0 10px;
-  }
-
-  .testimonios .card {
-    margin-bottom: 50px;
-  }
-  
-  .testimonios blockquote {
-    padding: 15px 20px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonios .cliente-img {
-    width: 60px;
-    height: 60px;
-    margin-top: -30px;
-  }
-  
-  .testimonios blockquote::before,
-  .testimonios blockquote::after {
-    font-size: 40px;
-  }
-
-  .preguntas-frecuentes .accordion-button {
-    padding: 15px 20px;
-    font-size: 1rem;
-  }
-
-  .preguntas-frecuentes .accordion-body {
-    padding: 15px 20px;
-  }
-  
-  .preguntas-frecuentes h2::before,
-  .preguntas-frecuentes h2::after,
-  .testimonios h2::before,
-  .testimonios h2::after {
-    display: none;
-  }
-}
-
-/* Estilos personalizados manteniendo las clases originales */
-:root {
-  --primary-color: #0ea2bd;
-  --secondary-color: #f8f9fa;
-  --text-color: #444444;
-  --light-blue: #e6f7fb;
-}
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  color: var(--text-color);
-}
-
-.section {
-  padding: 60px 0;
-  overflow: hidden;
-}
-
-.stats {
-  background-color: #111111;
-}
-
-.stats-item {
-  padding: 20px 0;
-  transition: all 0.3s ease-in-out;
-}
-
-.stats-item i {
-  font-size: 44px;
-  color: var(--primary-color);
-  margin-right: 15px;
-}
-
-.stats-item .purecounter {
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--primary-color);
-  display: block;
-  margin-bottom: 5px;
-}
-
-.stats-item p {
-  margin: 0;
-  font-size: 15px;
-}
-
-.stats-item p strong {
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.stats-item p span {
-  color: #6c757d;
-  font-size: 14px;
-}
-
-/* Estilos adicionales para replicar la imagen */
-.stats .container {
-  background-color: #191919e6;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px #0ea2bd;
-  padding: 30px;
-
-}
-
-.stats .row.gy-4 {
-  margin-top: 10px;
-}
-
-.stats img {
-  max-width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.stats img:hover {
-  transform: translateY(-5px);
-}
-
 /* Estilos para la sección "Elige, Define, Cumple, Disfruta" */
 .process-container {
-  background-color: #111111;
+  background-color: #fff9f9;
   padding: 30px 0;
 }
 
 .process-item {
-  background-color: #191919e6;
+  background-color: #fff9f9;
   border-radius: 15px;
   padding: 30px 20px;
   text-align: center;
@@ -2307,7 +1594,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: #1e1e1e;
 }
 
 .process-item p {
@@ -2315,15 +1602,3 @@ body {
   font-size: 14px;
   line-height: 1.6;
 }
-
-/* Animación para el contador */
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-counter {
-  animation: countUp 0.5s ease-out forwards;
-}
-
-

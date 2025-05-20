@@ -9,357 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECUPREST - Fácil, Seguro y Transparente</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', Arial, sans-serif;
-      }
 
-      body {
-        background-color: #f5f5f5;
-        overflow-x: hidden;
-      }
-
-      /* Header y Navegación */
-      header {
-        background-color: #111;
-        padding: 15px 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-      }
-
-      .logo img {
-        max-height: 60px;
-      }
-
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 30px;
-      }
-
-      nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        position: relative;
-        padding-bottom: 5px;
-        transition: color 0.3s;
-      }
-
-      nav ul li a:hover {
-        color: #0ff;
-      }
-
-      nav ul li a.active {
-        color: #0ff;
-      }
-
-      nav ul li a.active::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #0ff;
-      }
-
-      /* Hero Section con Revolution Slider */
-      .rev_slider_wrapper {
-        position: relative;
-        height: 600px;
-        overflow: hidden;
-        background-color: #1a365d;
-      }
-
-      .rev_slider {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .tp-bgimg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        opacity: 0.2;
-        z-index: 1;
-      }
-
-      .slide-content {
-        display: flex;
-        position: relative;
-        z-index: 10;
-        height: 100%;
-        width: 100%;
-      }
-
-      .slide-text {
-        flex: 1;
-        padding: 80px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .slide-text h1 {
-        font-size: 5rem;
-        font-weight: 300;
-        margin-bottom: 10px;
-        line-height: 0.9;
-      }
-
-      .slide-text h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-        font-weight: 400;
-        letter-spacing: 1px;
-      }
-
-      .slide-text p {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
-        line-height: 1.6;
-        max-width: 450px;
-        font-style: italic;
-        color: #0ff;
-      }
-
-      .slide-devices {
-        flex: 1;
-        position: relative;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      /* Dispositivos (Layer Animations) */
-      .device {
-        position: absolute;
-      }
-
-      /* MacBook Pro */
-      .macbook {
-        width: 107%;
-        height: 70%;
-        z-index: 5;
-        right: 13%;
-        bottom: auto;
-        top: 11%;
-      }
-
-      .macbook-screen {
-        width: 76.5%;
-        height: 49%;
-        z-index: 6;
-        right: 31%;
-        top: 20%;
-        object-fit: scale-down;
-      }
-
-      /* iPad */
-      .ipad {
-        width: 55%;
-        z-index: 7;
-        right: 68%;
-        bottom: auto;
-      }
-
-      .ipad-screen {
-        width: 40%;
-        height: 48%;
-        z-index: 8;
-        right: 75.5%;
-        top: 26.7%;
-        object-fit: scale-down;
-      }
-
-      /* iPhone */
-      .iphone {
-        width: 35%;
-        z-index: 9;
-        right: 90%;
-        top: 24%;
-        bottom: auto;
-      }
-
-      .iphone-screen {
-        width: 91%;
-        height: 39%;
-        z-index: 10;
-        right: 62%;
-        top: 35%;
-        object-fit: scale-down;
-      }
-
-
-      /* Download Buttons */
-      .download-section {
-        margin-top: 30px;
-        display: flex;
-        gap: 15px;
-      }
-
-      .store-button {
-        display: inline-flex;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 8px;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        transition: all 0.3s ease;
-      }
-
-      .store-button:hover {
-        background-color: rgba(0, 255, 255, 0.2);
-        transform: translateY(-3px);
-      }
-
-      .store-button img {
-        height: 24px;
-        margin-right: 10px;
-      }
-
-      /* Animaciones */
-      .fade-in {
-        animation: fadeIn 1s ease forwards;
-      }
-
-      .slide-in-left {
-        animation: slideInLeft 1s ease forwards;
-      }
-
-      .slide-in-right {
-        animation: slideInRight 1s ease forwards;
-        animation-delay: 0.3s;
-        opacity: 0;
-      }
-
-      .zoom-in {
-        animation: zoomIn 1s ease forwards;
-        animation-delay: 0.5s;
-        opacity: 0;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInLeft {
-        from {
-          transform: translateX(-50px);
-          opacity: 0;
-        }
-
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          transform: translateX(50px);
-          opacity: 0;
-        }
-
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes zoomIn {
-        from {
-          transform: scale(1.5);
-          opacity: 0;
-        }
-
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      /* Media Queries */
-      @media (max-width: 992px) {
-        .slide-text h1 {
-          font-size: 3.5rem;
-        }
-
-        .slide-text {
-          padding: 50px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .slide-content {
-          flex-direction: column;
-        }
-
-        .slide-text {
-          padding: 40px;
-          text-align: center;
-          align-items: center;
-        }
-
-        .slide-devices {
-          height: 500px;
-        }
-
-        .download-section {
-          justify-content: center;
-        }
-
-        nav ul {
-          display: none;
-        }
-
-      }
-    </style>
   </head>
+<!--
 
-  <body>
-
-    <!-- Hero Section con Revolution Slider -->
+     Hero Section con Revolution Slider 
     <div class="rev_slider_wrapper">
       <div class="rev_slider">
         <div class="tp-bgimg" style="background-image: url('media/index-fullscreen.jpg');"></div>
@@ -376,31 +30,29 @@
           </div>
 
           <div class="slide-devices">
-            <!-- Dispositivos con animaciones -->
-            <!-- MacBook con su contenido -->
+            
+             MacBook con su contenido 
             <img src="media/macbookpro.png" alt="MacBook Pro" class="device macbook slide-in-right">
             <img src="media/express_macbook_content2.jpg" alt="MacBook Screen" class="device macbook-screen zoom-in">
 
-            <!-- iPad con su contenido -->
+             iPad con su contenido 
             <img src="media/ipad.png" alt="iPad" class="device ipad slide-in-right">
             <img src="media/express_ipad_content2.jpg" alt="iPad Screen" class="device ipad-screen zoom-in">
 
-            <!-- iPhone con su contenido -->
+             iPhone con su contenido 
             <img src="media/ihpone.png" alt="iPhone" class="device iphone slide-in-right">
             <img src="media/express_iphone_content2.jpg" alt="iPhone Screen" class="device iphone-screen zoom-in">
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
-    <!-- Contenido adicional iría aquí -->
-
-  </body>
-  <!-- Sección Principal 
+  <!-- Sección Principal  --> 
   <section id="Inicio" class="hero section">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1><br>ECUPREST</h1>
           <h1>Tú aliado en el camino al éxito</h1>
           <p>Los Interes más bajos del mercado</p>
           <div class="d-flex">
@@ -414,7 +66,7 @@
     </div>
 
   </section>
--->
+
   <!-- Sección Nosotros -->
   <section id="Nosotros" class="about section">
     <div class="container section-title" data-aos="fade-up">
@@ -600,11 +252,11 @@
         <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
           <div class="service-item position-relative">
             <div class="img">
-              <img src="{% static 'img/services-1.jpg'%}" class="img-fluid" alt="" style="opacity: 50%;">
+              <img src="{% static 'img/services-1.jpg'%}" class="img-fluid" alt="" style="opacity: 85%;">
             </div>
             <div class="details">
               <h3>Empleados y Servidores públicos</h3>
-              <ul style="color: rgb(255, 255, 255); list-style-type: none;">
+              <ul style="list-style-type: none;">
                 <li>1 Copia de Cédula</li>
                 <li>1 Copia de la papeleta de votación </li>
                 <li>1 planilla de servicio básico</li>
@@ -616,11 +268,11 @@
         <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
           <div class="service-item position-relative">
             <div class="img">
-              <img src="{% static 'img/services-2.jpg'%}" class="img-fluid" alt="" style="opacity: 50%;">
+              <img src="{% static 'img/services-2.jpg'%}" class="img-fluid" alt="" style="opacity: 85%;">
             </div>
             <div class="details">
               <h3>Empresarios e Independientes</h3>
-              <ul style="color: rgb(255, 255, 255); list-style-type: none;">
+              <ul style="list-style-type: none;">
                 <li>1 Copia de Cédula</li>
                 <li>1 Copia de la papeleta de votación </li>
                 <li>1 planilla de servicio básico</li>
