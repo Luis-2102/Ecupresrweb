@@ -1,0 +1,28 @@
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+
+
+.animado {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+/* Animaciones por tipo */
+.izquierda    { transform: translateX(-100px); }
+.derecha      { transform: translateX(100px); }
+.arriba       { transform: translateY(-100px); }
+.abajo        { transform: translateY(100px); }
+.zoom         { transform: scale(0.5); }
+.girar        { transform: rotate(-90deg); }
+.fader        { opacity: 0; }
+
+/* Cuando el elemento es visible */
+.visible {
+    opacity: 1;
+    transform: none;         /* Solo si se usó translate o scale */
+    filter: none;            /* Para desenfoque */
+}
