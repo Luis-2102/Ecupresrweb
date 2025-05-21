@@ -203,141 +203,25 @@
     </script>
 
     <script>
-        function adaptDevicesToScreen() {
-            // Obtener el contenedor principal
-            const slideDevices = document.querySelector('.slide-devices');
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-
-            // Obtener referencias a los dispositivos
-            const macbook = document.querySelector('.macbook');
-            const macbookScreen = document.querySelector('.macbook-screen');
-            const ipad = document.querySelector('.ipad');
-            const ipadScreen = document.querySelector('.ipad-screen');
-            const iphone = document.querySelector('.iphone');
-            const iphoneScreen = document.querySelector('.iphone-screen');
-
-            // Ajustar la escala base según el tamaño de la pantalla
-            let baseScale = 1;
-
-            // Función para calcular la escala y posición según el viewport
-            function updateDevicePositions() {
-                // Calcular la escala basada en el ancho del viewport
-                if (viewportWidth > 1200) {
-                    baseScale = 1;
-                } else if (viewportWidth > 992) {
-                    baseScale = 0.9;
-                } else if (viewportWidth > 768) {
-                    baseScale = 0.8;
-                } else if (viewportWidth > 576) {
-                    baseScale = 0.7;
-                } else {
-                    baseScale = 0.6;
-                }
-
-                // Altura de referencia para pantallas pequeñas
-                const deviceContainerHeight = slideDevices.offsetHeight;
-
-                // Para pantallas grandes (>768px), mantener la disposición horizontal
-                if (viewportWidth > 768) {
-                    // Posicionamiento MacBook
-                    macbook.style.transform = `scale(${baseScale})`;
-                    macbook.style.transformOrigin = 'right center';
-
-                    // Posicionamiento iPad
-                    ipad.style.transform = `scale(${baseScale})`;
-                    ipad.style.transformOrigin = 'left center';
-
-                    // Posicionamiento iPhone
-                    iphone.style.transform = `scale(${baseScale})`;
-                    iphone.style.transformOrigin = 'left center';
-
-                    // Asegurarse de que las pantallas de los dispositivos se escalen adecuadamente
-                    macbookScreen.style.transform = `scale(${baseScale})`;
-                    macbookScreen.style.transformOrigin = 'center center';
-
-                    ipadScreen.style.transform = `scale(${baseScale})`;
-                    ipadScreen.style.transformOrigin = 'center center';
-
-                    iphoneScreen.style.transform = `scale(${baseScale})`;
-                    iphoneScreen.style.transformOrigin = 'center center';
-                }
-                // Para pantallas pequeñas (<768px), reorganizar verticalmente
-                else {
-                    // Factor de ajuste adicional para pantallas pequeñas
-                    const smallScreenAdjust = viewportWidth < 480 ? 0.8 : 0.9;
-                    const adjustedScale = baseScale * smallScreenAdjust;
-
-                    // Calcular posiciones para evitar solapamiento
-                    const verticalSpacing = deviceContainerHeight / 4;
-
-                    // Posicionamiento para vista móbil
-                    if (viewportWidth <= 576) {
-                        // MacBook centrado
-                        macbook.style.transform = `scale(${adjustedScale})`;
-                        macbook.style.transformOrigin = 'center bottom';
-
-                        // iPad a la izquierda
-                        ipad.style.transform = `scale(${adjustedScale})`;
-                        ipad.style.transformOrigin = 'left center';
-
-                        // iPhone a la derecha
-                        iphone.style.transform = `scale(${adjustedScale})`;
-                        iphone.style.transformOrigin = 'right center';
-                    } else {
-                        // Posicionamiento para tablets
-                        macbook.style.transform = `scale(${adjustedScale})`;
-                        macbook.style.transformOrigin = 'center center';
-
-                        ipad.style.transform = `scale(${adjustedScale})`;
-                        ipad.style.transformOrigin = 'left center';
-
-                        iphone.style.transform = `scale(${adjustedScale})`;
-                        iphone.style.transformOrigin = 'right center';
-                    }
-
-                    // Ajustar las pantallas de los dispositivos
-                    macbookScreen.style.transform = `scale(${adjustedScale})`;
-                    macbookScreen.style.transformOrigin = 'center center';
-
-                    ipadScreen.style.transform = `scale(${adjustedScale})`;
-                    ipadScreen.style.transformOrigin = 'center center';
-
-                    iphoneScreen.style.transform = `scale(${adjustedScale})`;
-                    iphoneScreen.style.transformOrigin = 'center center';
-                }
-            }
-
-            // Aplicar los ajustes iniciales
-            updateDevicePositions();
-
-            // Mantener la proporción correcta del contenedor
-            function maintainAspectRatio() {
-                const slidesWrapper = document.querySelector('.rev_slider_wrapper');
-                const slideContent = document.querySelector('.slide-content');
-
-                // Ajustar la altura mínima del slider en dispositivos móviles
-                if (viewportWidth <= 768) {
-                    const minHeight = Math.max(600, viewportHeight * 0.9);
-                    slidesWrapper.style.height = `${minHeight}px`;
-                    slideContent.style.height = `${minHeight}px`;
-                } else {
-                    // En pantallas grandes, usar altura del viewport
-                    slidesWrapper.style.height = `${Math.max(600, viewportHeight * 0.9)}px`;
-                    slideContent.style.height = '100%';
-                }
-            }
-
-            // Aplicar la proporción inicial
-            maintainAspectRatio();
-        }
-
-        // Ejecutar cuando la página se carga
+        // JavaScript para el carrusel de fondo en la sección hero
         document.addEventListener('DOMContentLoaded', function () {
-            adaptDevicesToScreen();
+            const heroSection = document.getElementById('Inicio');
+            const images = JSON.parse(heroSection.getAttribute('data-images'));
+            let currentIndex = 0;
 
-            // Actualizar cuando cambie el tamaño de la ventana
-            window.addEventListener('resize', adaptDevicesToScreen);
+            // Establecer la primera imagen como fondo
+            heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+
+            // Función para cambiar la imagen
+            function changeImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+            }
+
+            // Cambiar imagen cada 4 segundos (4000ms)
+            let intervalId = setInterval(changeImage, 2000);
+
+
         });
     </script>
 </body>

@@ -11,44 +11,14 @@
     <title>ECUPREST - Fácil, Seguro y Transparente</title>
 
   </head>
-<!--
-
-     Hero Section con Revolution Slider 
-    <div class="rev_slider_wrapper">
-      <div class="rev_slider">
-        <div class="tp-bgimg" style="background-image: url('media/index-fullscreen.jpg');"></div>
-
-        <div class="slide-content">
-          <div class="slide-text slide-in-left">
-            <h1><br>ECUPREST</h1>
-            <h2>FÁCIL, SEGURO Y TRANSPARENTE</h2>
-            <p>La plataforma Ecuatoriana que te permite solicitar préstamos de manera rápida y segura desde tu
-              dispositivo móvil.</p>
-            <div class="d-flex">
-              <a href="#Calculadora" class="btn-get-started">Simula Tu Préstamo</a>
-            </div>
-          </div>
-
-          <div class="slide-devices">
-            
-             MacBook con su contenido 
-            <img src="media/macbookpro.png" alt="MacBook Pro" class="device macbook slide-in-right">
-            <img src="media/express_macbook_content2.jpg" alt="MacBook Screen" class="device macbook-screen zoom-in">
-
-             iPad con su contenido 
-            <img src="media/ipad.png" alt="iPad" class="device ipad slide-in-right">
-            <img src="media/express_ipad_content2.jpg" alt="iPad Screen" class="device ipad-screen zoom-in">
-
-             iPhone con su contenido 
-            <img src="media/ihpone.png" alt="iPhone" class="device iphone slide-in-right">
-            <img src="media/express_iphone_content2.jpg" alt="iPhone Screen" class="device iphone-screen zoom-in">
-          </div>
-        </div>
-      </div>
-    </div>-->
-
-  <!-- Sección Principal  --> 
-  <section id="Inicio" class="hero section">
+  <!-- Sección Principal  -->
+  <section id="Inicio" class="hero section" data-images='[
+    
+    "{% static "img/index-fullscreen.jpg" %}",
+    "{% static "img/fondo-.jpg" %}",
+    "{% static "img/fondo-1.jpg" %}",
+    "{% static "img/fondo-2.jpg" %}"
+  ]'>
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
@@ -59,17 +29,7 @@
             <a href="#Calculadora" class="btn-get-started">Simula Tu Préstamo</a>
           </div>
         </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <div class="custom-carousel" id="carousel"
-                data-images = '[
-                    "{% static "img/img1.png" %}",
-                    "{% static "img/img2.png" %}",
-                    "{% static "img/hero-img.png" %}"
-                  ]';>
-              
-            <img id="carouselImage" src="{% static 'img/img1.png' %}" alt="Imagen carrusel">
-          </div>
-        </div>        
+        <!-- Eliminar la columna de imagen ya que ahora es el fondo -->
       </div>
     </div>
   </section>
@@ -159,22 +119,23 @@
   </div>
 
   <!-- Sección de Acerca de ECUPREST -->
-<section id="stats" class="section stats" >
-  <div class="container" data-aos="fade-up">
-    <div class="row align-items-center gy-4">
-      <div class="col-lg-4 text-center">
-        <img src="media/iconos/logo_empresa.png" alt="Logo ECUPREST" class="img-fluid" style="max-width: 500px;">
-      </div>
-      <div class="col-lg-8">
-        <h6 style="text-transform: uppercase; font-weight: 600; letter-spacing: 1px;">Acerca de</h6>
-        <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 20px;">ECUPREST</h2>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: white">
-          Ofrecemos soluciones financieras accesibles y rápidas. Nuestro compromiso es apoyarte con préstamos adaptados a tus necesidades, brindando confianza, seguridad y transparencia en cada paso del proceso.
-        </p>
+  <section id="stats" class="section stats">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-4 text-center">
+          <img src="media/iconos/logo_empresa.png" alt="Logo ECUPREST" class="img-fluid" style="max-width: 500px;">
+        </div>
+        <div class="col-lg-8">
+          <h6 style="text-transform: uppercase; font-weight: 600; letter-spacing: 1px;">Acerca de</h6>
+          <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 20px;">ECUPREST</h2>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: white">
+            Ofrecemos soluciones financieras accesibles y rápidas. Nuestro compromiso es apoyarte con préstamos
+            adaptados a tus necesidades, brindando confianza, seguridad y transparencia en cada paso del proceso.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- Aplicativo -->
@@ -185,7 +146,7 @@
     </div>
     <div class="container">
       <div class="row gy-4" style="justify-content: space-around; align-items: flex-start;">
-        <div class="col-xl-3 col-md-6 d-flex animado abajo"  data-aos-delay="100" >
+        <div class="col-xl-3 col-md-6 d-flex animado abajo" data-aos-delay="100">
           <div class="service-item position-relative">
             <i class="bi bi-envelope-check-fill"></i>
             <h4><a class="stretched-link">Envia tu Solicitud</a></h4>
@@ -201,7 +162,7 @@
               Pueden variar según el monto y objetivo del credito </p>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6 d-flex animado abajo"  data-aos-delay="300">
+        <div class="col-xl-3 col-md-6 d-flex animado abajo" data-aos-delay="300">
           <div class="service-item position-relative">
             <i class="bi bi-folder-check"></i>
             <h4><a class="stretched-link">Validación</a></h4>
@@ -584,7 +545,7 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <form id="contactForm" class="php-email-form animado derecha"  data-aos-delay="500">
+          <form id="contactForm" class="php-email-form animado derecha" data-aos-delay="500">
             {% csrf_token %}
             <div class="row gy-4">
               <div class="col-md-6">
