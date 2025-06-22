@@ -1647,6 +1647,19 @@ section,
   font-size: 14px;
   line-height: 1.6;
 }
+.process-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.process-item {
+  flex: 1 1 calc(20% - 20px); /* 5 elementos por fila */
+  min-width: 220px;
+  max-width: 240px;
+}
+
 
 @media (max-width: 768px) {
   .process-container .container .row .col-md-3{
